@@ -28,7 +28,7 @@ public class Controller {
      * hämtar sånger från radio, skickar in dessa i SpotifHandler som returnerar ett url sångerna. Allt detta paketeras
      * om i en HashMap och skickas till send()
      */
-    protected void getSongs(io.javalin.http.Context ctx){
+    protected void getSongs(io.javalin.http.Context ctx){ //todo fyll i om en låt är tom
         Song[] song = radioHandler.getSongsFromRadio(ctx.pathParam("id"));
         SpotifyHandler.authorize();
         song = SpotifyHandler.getSpotifyURLS(song);
@@ -43,12 +43,14 @@ public class Controller {
                 previousOrCurrent = "current";
             }
 
-            HashMap map = new HashMap();
-            map.put("previousorcurrent", previousOrCurrent); //previous or current song
-            map.put("title", song[i].getSongTitle());
-            map.put("artist", song[i].getArtist());
-            map.put("spotifyurl", song[i].getSpotifyURL());
-            maps.add(map);
+            if(song[i] != null){
+                HashMap map = new HashMap();
+                map.put("previousorcurrent", previousOrCurrent); //previous or current song
+                map.put("title", song[i].getSongTitle());
+                map.put("artist", song[i].getArtist());
+                map.put("spotifyurl", song[i].getSpotifyURL());
+                maps.add(map);
+            }
         }
 
         send(ctx, maps);
