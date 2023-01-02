@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html lang="sv">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="static/style.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <title>Diggaren</title>
+    </head>
+
+    <body>
+        <main>
+            <header>
+                <h2>Diggaren</h2>
+            </header>
+        </main>
+
+        <div class="sidenav">
+            <a href="home.html">Home</a>
+            <a href="radio.html">Radio</a>
+            <a href="https://open.spotify.com/">Spotify</a>
+            <a href="#">About</a>
+        </div>
+
+        <div class="radiobtns">
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/132')">P1</button>
+                <button id="P1" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/163')">P2</button>
+                <button id="P2" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/164')">P3</button>
+                <button id="P3" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/213')">P4</button>
+                <button id="P4" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/213')">P4 Blekinge</button>
+                <button id="P4 Blekinge" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/223')">P4 Dalarna</button>
+                <button id="P4 Dalarna" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/205')">P4 Gotland</button>
+                <button id="P4 Gotland" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/210')">P4 Gävleborg</button>
+                <button id="P4 Gävleborg" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/212')">P4 Göteborg</button>
+                <button id="P4 Göteborg" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/220')">P4 Halland</button>
+                <button id="P4 Halland" onclick="getSpotify()">Visa Spotify!</button>
+
+                <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/200')">P4 Jämtland</button>
+                <button id="P4 Jämtland" onclick="getSpotify()">Visa Spotify!</button>
+                <audio id="player"></audio>
+        </div>
+        
+        <div>
+            <iframe id="P1iframe" src="" frameborder="0"></iframe>
+        </div>
+
+        <footer>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo ligula, aliquam ut libero vitae, dapibus scelerisque ante. Suspendisse turpis orci, dapibus vitae hendrerit eu, pulvinar in risus. Donec ullamcorper magna nec dui semper egestas. Maecenas ac erat vitae libero pharetra vestibulum ut et metus. Vestibulum mauris sapien, ullamcorper eu imperdiet in, eleifend sed ante. Suspendisse id tristique orci, eget blandit arcu. Integer volutpat lorem vitae nibh dapibus, vel suscipit enim suscipit. Vestibulum ac sem vestibulum, mattis orci vel, euismod enim. Nam fringilla semper justo. Sed rutrum, odio nec imperdiet placerat, eros nibh luctus elit, sed lobortis metus tellus at quam. Integer tempus, nibh sit amet mollis interdum, sem erat ultrices tortor, a convallis leo nisi eget nisi. 
+            </p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
