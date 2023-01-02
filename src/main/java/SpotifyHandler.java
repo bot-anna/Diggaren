@@ -4,6 +4,7 @@ import com.mashape.unirest.http.Unirest;
 import com.mashape.unirest.http.exceptions.UnirestException;
 import org.apache.http.client.utils.URIUtils;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.net.URLEncoder;
@@ -83,6 +84,7 @@ public class SpotifyHandler {
 
     public static Song[] getSpotifyURLS(Song[] songs) {
         HttpResponse<JsonNode> response;
+        String spotifyURL;
         try {
             for (int i = 0; i < songs.length; i++) {
                 if (songs[i] != null) {
@@ -96,19 +98,25 @@ public class SpotifyHandler {
                     JsonNode jsonNode1 = response.getBody();
                     JSONObject envelope2 = jsonNode1.getObject(); //hämta envelope ur svarsnoden
                     JSONObject tracks = envelope2.getJSONObject("tracks"); //plocka ur tracks ur envelope
-                    JSONArray items = tracks.getJSONArray("items"); //plocka ur "items" ur tracks (som är en array fastän vi bara ber om 1 låt tillbaka)
-                    JSONObject item = items.getJSONObject(0); //hämta det enda objektet ur arrayen
-                    JSONObject external_urls = item.getJSONObject("external_urls"); //hämta external_urls-objektet ur item
-                    String spotifyURL = external_urls.getString("spotify"); //hämta urlen som tillhör "spotify"
-                    System.out.println(spotifyURL); //skriv ut url
+                        JSONArray items = tracks.getJSONArray("items"); //plocka ur "items" ur tracks (som är en array fastän vi bara ber om 1 låt tillbaka)
+                        if(items.length() != 0) {
+                        JSONObject item = items.getJSONObject(0); //hämta det enda objektet ur arrayen
+                        JSONObject external_urls = item.getJSONObject("external_urls"); //hämta external_urls-objektet ur item
+                        spotifyURL = external_urls.getString("spotify"); //hämta urlen som tillhör "spotify"
+                        System.out.println(spotifyURL); //skriv ut url
                     /**
                      * vi kan också hämta länk till bild på albumcover ur "item", det hade ju kunnat vara roligt att skicka med och visa upp
                      */
+                    } else {
+                        spotifyURL = "Not found on spotify";
+                    }
                     songs[i].setSpotifyURL(spotifyURL);
                 }
             }
         } catch (UnirestException e) {
             e.printStackTrace();
+        } catch (JSONException e) {
+
         }
         return songs;
         }
