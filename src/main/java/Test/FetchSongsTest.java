@@ -37,7 +37,7 @@ public class FetchSongsTest {
             JSONObject previousSong = playlist.getJSONObject("previoussong"); //hämta objektet "previous song" från playlist-objektet
           //  JSONObject currentSong = playlist.getJSONObject("song"); //funkar bara ibland, kommer behöva nullcheck eller dylikt
             System.out.println(playlist.toString(1)); //gör så att playlistobjektet printas indenterat
-
+            System.out.println(envelope.toString(1));
             System.out.println("Previous song");
             System.out.println("Title: " + previousSong.get("title")); //skriv ut titeln på föregående sång
             System.out.println("Artist: " + previousSong.get("artist")); //skriv ut artisten på föregående sång
