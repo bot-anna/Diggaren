@@ -31,8 +31,8 @@ public class Runner {
             });
                 })
                 .get("/radio/allchannels", ctx -> { controller.getRadioChannels(ctx); })
-                .get("/radio/{id}", ctx -> {controller.getSongs(ctx);
-                })
+                .get("/radio/{id}", ctx -> {controller.getSongs(ctx);})
+                .get("/api/{id}", ctx -> { controller.getFullSongs(ctx);})
                 .start(5008); //run server on port 5008
     }
 
