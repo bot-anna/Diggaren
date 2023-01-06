@@ -56,6 +56,34 @@ public class Controller {
         send(ctx, maps);
     }
 
+    protected void getFullSongs(io.javalin.http.Context ctx){ //todo fyll i om en låt är tom
+        Song[] song = radioHandler.getSongsFromRadio(ctx.pathParam("id"));
+        SpotifyHandler.authorize();
+        song = SpotifyHandler.getSpotifyURLS(song);
+        ArrayList<Map> maps = new ArrayList<>();
+
+        for (int i=0; i < song.length; i++){
+            String previousOrCurrent;
+            if(i == RadioHandler.PREVIOUS_SONG_INDEX){
+                previousOrCurrent = "previous";
+            }
+            else {
+                previousOrCurrent = "current";
+            }
+
+            if(song[i] != null){
+                HashMap map = new HashMap();
+                map.put("previousorcurrent", previousOrCurrent); //previous or current song
+                map.put("title", song[i].getSongTitle());
+                map.put("artist", song[i].getArtist());
+                map.put("spotifyurl", song[i].getSpotifyURL());
+                maps.add(map);
+            }
+        }
+
+        send(ctx, maps);
+    }
+
     /**
      * kör en metod i RadioHandler som hämtar alla kanaler och skickar ett returmeddelande
      */

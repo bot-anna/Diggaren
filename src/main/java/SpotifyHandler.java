@@ -120,6 +120,46 @@ public class SpotifyHandler {
         }
         return songs;
         }
+
+
+    public static Song[] getSpotifyID(Song[] songs) {
+        HttpResponse<JsonNode> response;
+        String spotifyURL;
+        try {
+            for (int i = 0; i < songs.length; i++) {
+                if (songs[i] != null) {
+                    System.out.println(songs[i].toString());
+                    String URL = SpotifyHandler.makeURL(songs[i].getSongTitle(), songs[i].getArtist());
+                    response = Unirest.get(URL) //detta är boten anna-urlen
+                            .queryString("format", "json") //ange json som returformat
+                            .header("Authorization: ", "Bearer " + SpotifyHandler.getTOKEN()) //skickar med token (först måste alltså token hämtas från spotify innan denna metod körs
+                            .asJson();
+
+                    JsonNode jsonNode1 = response.getBody();
+                    JSONObject envelope2 = jsonNode1.getObject(); //hämta envelope ur svarsnoden
+                    JSONObject tracks = envelope2.getJSONObject("tracks"); //plocka ur tracks ur envelope
+                    JSONArray items = tracks.getJSONArray("items"); //plocka ur "items" ur tracks (som är en array fastän vi bara ber om 1 låt tillbaka)
+                    if(items.length() != 0) {
+                        JSONObject item = items.getJSONObject(0); //hämta det enda objektet ur arrayen
+                        JSONObject external_urls = item.getJSONObject("external_urls"); //hämta external_urls-objektet ur item
+                        spotifyURL = external_urls.getString("spotify"); //hämta urlen som tillhör "spotify"
+                        System.out.println(spotifyURL); //skriv ut url
+                        /**
+                         * vi kan också hämta länk till bild på albumcover ur "item", det hade ju kunnat vara roligt att skicka med och visa upp
+                         */
+                    } else {
+                        spotifyURL = "Not found on spotify";
+                    }
+                    songs[i].setSpotifyURL(spotifyURL);
+                }
+            }
+        } catch (UnirestException e) {
+            e.printStackTrace();
+        } catch (JSONException e) {
+
+        }
+        return songs;
     }
+}
 
 
