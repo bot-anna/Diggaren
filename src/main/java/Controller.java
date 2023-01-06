@@ -109,4 +109,7 @@ public class Controller {
         ctx.json(gson.toJson(list));
     }
 
+    public void loadHomePage(io.javalin.http.Context ctx) {
+
+    }
 }
