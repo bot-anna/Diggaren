@@ -31,8 +31,8 @@ public class Runner {
             });
                 })
                 .get("/radio/allchannels", ctx -> { controller.getRadioChannels(ctx); })
-                .get("/radio/{id}", ctx -> {controller.getSongs(ctx);})
-                .get("/api/{id}", ctx -> { controller.getFullSongs(ctx);})
+                .get("/radio/{id}", ctx -> {controller.getSongs(ctx);}) //returnerar spotify-IDt för låtarna
+                .get("/api/{id}", ctx -> { controller.getFullSongs(ctx);}) //returnerar hela spotifyURLen
                 .start(5008); //run server on port 5008
     }
 
