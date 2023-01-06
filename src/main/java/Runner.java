@@ -24,7 +24,7 @@ public class Runner {
     private static void startRunner() {
         Runner Runner = new Runner();
         Javalin app = Javalin.create(config -> {
-            config.staticFiles.add("static/static", Location.CLASSPATH);
+            config.staticFiles.add("static", Location.CLASSPATH);
             config.plugins.enableCors(cors -> {
                 cors.add(it ->
                         it.anyHost());
