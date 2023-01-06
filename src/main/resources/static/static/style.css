@@ -18,8 +18,9 @@ body {
 
 header > h1 {
     font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: 200px;
+    font-size: 150px;
     color: rgb(242, 208, 255);
+    text-align: center;
 }
 
 main > header > h2{

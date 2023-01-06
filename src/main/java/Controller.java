@@ -6,6 +6,11 @@ import io.javalin.http.*;
 import io.javalin.rendering.template.JavalinPebble;
 import io.javalin.Javalin;
 import com.google.gson.*;
+
+
+/**
+ * controller class to manage the information flow
+ */
 public class Controller {
     RadioHandler radioHandler;
     SpotifyHandler spotifyHandler;
@@ -24,9 +29,9 @@ public class Controller {
     }
 
     /**
-     * @param ctx @todo beskrivning
-     * hämtar sånger från radio, skickar in dessa i SpotifHandler som returnerar ett url sångerna. Allt detta paketeras
-     * om i en HashMap och skickas till send()
+     * this method get the name and artist to the songs from the radio via SR's API, and sends them into spotify's API
+     * and returns the spotify-ID for the songs, to be sent back to the client.
+     * @param ctx used to send return message to the calling client
      */
     protected void getSongs(io.javalin.http.Context ctx){ //todo fyll i om en låt är tom
         Song[] song = radioHandler.getSongsFromRadio(ctx.pathParam("id"));
@@ -56,6 +61,11 @@ public class Controller {
         send(ctx, maps);
     }
 
+    /**
+     * this method get the name and artist to the songs from the radio via SR's API, and sends them into spotify's API
+     * and returns the URL for the songs, to be sent back to the client.
+     * @param ctx used to send return message to the calling client
+     */
     protected void getFullSongs(io.javalin.http.Context ctx){ //todo fyll i om en låt är tom
         Song[] song = radioHandler.getSongsFromRadio(ctx.pathParam("id"));
         SpotifyHandler.authorize();
@@ -85,7 +95,7 @@ public class Controller {
     }
 
     /**
-     * kör en metod i RadioHandler som hämtar alla kanaler och skickar ett returmeddelande
+     * runs a method in radiohandler that gets all the channels from SR and returns them to the client
      */
     protected void getRadioChannels(io.javalin.http.Context ctx){
         ArrayList<RadioChannel> channels = radioHandler.getChannels();
@@ -103,13 +113,9 @@ public class Controller {
 
     /**
      * @param ctx @todo beskrivning
-     * sends stuff out in the world
+     * sends return message's to the calling clients
      */
     private void send(io.javalin.http.Context ctx, ArrayList list){
         ctx.json(gson.toJson(list));
-    }
-
-    public void loadHomePage(io.javalin.http.Context ctx) {
-
     }
 }

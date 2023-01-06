@@ -56,6 +56,9 @@ public class SpotifyHandler {
         return TOKEN;
     }
 
+    /**
+     * Gets an access token from the spotify API to be used for searching songs
+     */
     public static void authorize() {
         String url = "https://accounts.spotify.com/api/token"; //url för att hämta token
         HttpResponse<JsonNode> response;
@@ -72,7 +75,6 @@ public class SpotifyHandler {
             JsonNode jsonNode = response.getBody();
             JSONObject envelope = jsonNode.getObject();
             String access_token = envelope.getString("access_token"); //hämta accesstoken ur returobjektet
-            System.out.println(access_token);
             SpotifyHandler.setTOKEN(access_token); //setta token i SpotifyHandler
 
         } catch (UnirestException e) {
@@ -82,13 +84,17 @@ public class SpotifyHandler {
 
     }
 
+    /**
+     * method for getting the spotify urls based upon name and artist that is stored in the song array
+     * @param songs to get urls for
+     * @return the songs with the urls setted
+     */
     public static Song[] getSpotifyURLS(Song[] songs) {
         HttpResponse<JsonNode> response;
         String spotifyURL;
         try {
             for (int i = 0; i < songs.length; i++) {
                 if (songs[i] != null) {
-                    System.out.println(songs[i].toString());
                     String URL = SpotifyHandler.makeURL(songs[i].getSongTitle(), songs[i].getArtist());
                     response = Unirest.get(URL) //detta är boten anna-urlen
                             .queryString("format", "json") //ange json som returformat
@@ -103,7 +109,6 @@ public class SpotifyHandler {
                         JSONObject item = items.getJSONObject(0); //hämta det enda objektet ur arrayen
                         JSONObject external_urls = item.getJSONObject("external_urls"); //hämta external_urls-objektet ur item
                         spotifyURL = external_urls.getString("spotify"); //hämta urlen som tillhör "spotify"
-                        System.out.println(spotifyURL); //skriv ut url
                     /**
                      * vi kan också hämta länk till bild på albumcover ur "item", det hade ju kunnat vara roligt att skicka med och visa upp
                      */
@@ -121,14 +126,17 @@ public class SpotifyHandler {
         return songs;
         }
 
-
+    /**
+     * method for getting the spotify ID's based upon name and artist that is stored in the song array
+     * @param songs to get ID's for
+     * @return the songs with the ID's setted
+     */
     public static Song[] getSpotifyID(Song[] songs) {
         HttpResponse<JsonNode> response;
         String spotifyIDString;
         try {
             for (int i = 0; i < songs.length; i++) {
                 if (songs[i] != null) {
-                    System.out.println(songs[i].toString());
                     String URL = SpotifyHandler.makeURL(songs[i].getSongTitle(), songs[i].getArtist());
                     response = Unirest.get(URL) //detta är boten anna-urlen
                             .queryString("format", "json") //ange json som returformat

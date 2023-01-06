@@ -15,6 +15,10 @@ import com.mashape.unirest.http.Unirest;
 import org.json.JSONObject;
 
 public class RadioHandler {
+    private static final String SONG_FETCHING_URL = "http://api.sr.se/api/v2/playlists/rightnow?channelid="; //kommer behöva kompletteras med radiokanal på slutet
+    private static final int LENGTH_OF_SONG_ARRAY = 2; //längden på antal låtar som returneras från radion i song-arrayen
+    public static final int PREVIOUS_SONG_INDEX = 0; //indexet för "previous song"
+    public static final int CURRENT_SONG_INDEX = 1; //indexet för "current song"
 
     public List<String> getPlaylist(String id) {
         HttpResponse<JsonNode> response;
@@ -47,10 +51,6 @@ public class RadioHandler {
 
         return null;
         } //delete?
-    private static final String SONG_FETCHING_URL = "http://api.sr.se/api/v2/playlists/rightnow?channelid="; //kommer behöva kompletteras med radiokanal på slutet
-    private static final int LENGTH_OF_SONG_ARRAY = 2; //längden på antal låtar som returneras från radion i song-arrayen
-    public static final int PREVIOUS_SONG_INDEX = 0; //indexet för "previous song"
-    public static final int CURRENT_SONG_INDEX = 1; //indexet för "current song"
 
     /**
      * @param channelID id på radiokanalen man vill hämta sång ifrån

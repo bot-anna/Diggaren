@@ -1,6 +1,6 @@
 /**
- * Sång-klass för inkapsling av songinformation för lättare hantering av sång-data när den skickas mellan
- * radio och spotifyklasserna
+ * Song-class for encapsulation of song information for easier handling of song-data when it is sent between
+ * the radio and spotify classes.
  */
 public class Song {
     private String songTitle;

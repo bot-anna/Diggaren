@@ -1,6 +1,9 @@
 import netscape.javascript.JSObject;
 import org.json.JSONObject;
 
+/**
+ * container class for radiochannel information
+ */
 public class RadioChannel {
     private String channelName;
     private String channelID;

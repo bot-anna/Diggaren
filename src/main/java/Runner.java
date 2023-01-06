@@ -2,6 +2,9 @@
 import io.javalin.Javalin;
 import io.javalin.http.staticfiles.Location;
 
+/**
+ * The class that starts and runs the server, creates endpoits and a controller.
+ */
 public class Runner {
     private static Controller controller;
     public static void main(String[] args) {
