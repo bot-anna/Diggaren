@@ -26,10 +26,10 @@
 
         <div class="radiobtns">
                 <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/132')">P1</button>
-                <button id="P1" onclick="getSpotify()">Visa Spotify!</button>
+                <button id="132" onclick="getAPI();">Visa Spotify!</button>
 
                 <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/163')">P2</button>
-                <button id="P2" onclick="getSpotify()">Visa Spotify!</button>
+                <button id="164" onclick="getAPI();">Visa Spotify!</button>
 
                 <button onclick="playRadio('http://sverigesradio.se/topsy/direkt/164')">P3</button>
                 <button id="P3" onclick="getSpotify()">Visa Spotify!</button>
@@ -59,11 +59,20 @@
                 <button id="P4 Jämtland" onclick="getSpotify()">Visa Spotify!</button>
                 <audio id="player"></audio>
         </div>
-        
-        <div>
-            <iframe id="P1iframe" src="" frameborder="0"></iframe>
-        </div>
 
+        
+        <div id="spotifyframe">
+            <table class="table">
+                <thead id ="table_body">
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
         <footer>
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc leo ligula, aliquam ut libero vitae, dapibus scelerisque ante. Suspendisse turpis orci, dapibus vitae hendrerit eu, pulvinar in risus. Donec ullamcorper magna nec dui semper egestas. Maecenas ac erat vitae libero pharetra vestibulum ut et metus. Vestibulum mauris sapien, ullamcorper eu imperdiet in, eleifend sed ante. Suspendisse id tristique orci, eget blandit arcu. Integer volutpat lorem vitae nibh dapibus, vel suscipit enim suscipit. Vestibulum ac sem vestibulum, mattis orci vel, euismod enim. Nam fringilla semper justo. Sed rutrum, odio nec imperdiet placerat, eros nibh luctus elit, sed lobortis metus tellus at quam. Integer tempus, nibh sit amet mollis interdum, sem erat ultrices tortor, a convallis leo nisi eget nisi. 
