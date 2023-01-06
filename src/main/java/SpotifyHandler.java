@@ -124,12 +124,11 @@ public class SpotifyHandler {
 
     public static Song[] getSpotifyID(Song[] songs) {
         HttpResponse<JsonNode> response;
-        String spotifyURL;
+        String spotifyIDString;
         try {
             for (int i = 0; i < songs.length; i++) {
                 if (songs[i] != null) {
                     System.out.println(songs[i].toString());
-                    String spotifyIDString;
                     String URL = SpotifyHandler.makeURL(songs[i].getSongTitle(), songs[i].getArtist());
                     response = Unirest.get(URL) //detta är boten anna-urlen
                             .queryString("format", "json") //ange json som returformat
@@ -142,9 +141,7 @@ public class SpotifyHandler {
                     JSONArray items = tracks.getJSONArray("items"); //plocka ur "items" ur tracks (som är en array fastän vi bara ber om 1 låt tillbaka)
                     if(items.length() != 0) {
                         JSONObject item = items.getJSONObject(0); //hämta det enda objektet ur arrayen
-                        JSONObject spotifyID = item.getJSONObject("id");
-                        spotifyIDString = spotifyID.toString();
-                        System.out.println(spotifyID.toString());
+                        spotifyIDString = item.getString("id");
 
                         /**
                          * vi kan också hämta länk till bild på albumcover ur "item", det hade ju kunnat vara roligt att skicka med och visa upp

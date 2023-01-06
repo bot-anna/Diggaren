@@ -2,7 +2,7 @@ public class MashupTesterV2 {
     public static void main(String[] args) {
         Song[] songs = RadioHandler.getSongsFromRadio("164");
         SpotifyHandler.authorize();
-        songs = SpotifyHandler.getSpotifyURLS(songs);
+        songs = SpotifyHandler.getSpotifyID(songs);
         RadioHandler handler = new RadioHandler();
 
 
