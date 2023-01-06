@@ -31,7 +31,7 @@ public class Controller {
     protected void getSongs(io.javalin.http.Context ctx){ //todo fyll i om en låt är tom
         Song[] song = radioHandler.getSongsFromRadio(ctx.pathParam("id"));
         SpotifyHandler.authorize();
-        song = SpotifyHandler.getSpotifyURLS(song);
+        song = SpotifyHandler.getSpotifyID(song);
         ArrayList<Map> maps = new ArrayList<>();
 
         for (int i=0; i < song.length; i++){

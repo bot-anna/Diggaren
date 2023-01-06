@@ -129,6 +129,7 @@ public class SpotifyHandler {
             for (int i = 0; i < songs.length; i++) {
                 if (songs[i] != null) {
                     System.out.println(songs[i].toString());
+                    String spotifyIDString;
                     String URL = SpotifyHandler.makeURL(songs[i].getSongTitle(), songs[i].getArtist());
                     response = Unirest.get(URL) //detta är boten anna-urlen
                             .queryString("format", "json") //ange json som returformat
@@ -141,17 +142,18 @@ public class SpotifyHandler {
                     JSONArray items = tracks.getJSONArray("items"); //plocka ur "items" ur tracks (som är en array fastän vi bara ber om 1 låt tillbaka)
                     if(items.length() != 0) {
                         JSONObject item = items.getJSONObject(0); //hämta det enda objektet ur arrayen
-                        JSONObject external_urls = item.getJSONObject("external_urls"); //hämta external_urls-objektet ur item
-                        spotifyURL = external_urls.getString("spotify"); //hämta urlen som tillhör "spotify"
-                        System.out.println(spotifyURL); //skriv ut url
+                        JSONObject spotifyID = item.getJSONObject("id");
+                        spotifyIDString = spotifyID.toString();
+                        System.out.println(spotifyID.toString());
+
                         /**
                          * vi kan också hämta länk till bild på albumcover ur "item", det hade ju kunnat vara roligt att skicka med och visa upp
                          */
                     } else {
-                        spotifyURL = "Not found on spotify";
+                        spotifyIDString = "Not found on spotify";
                     }
-                    songs[i].setSpotifyURL(spotifyURL);
-                }
+                    songs[i].setSpotifyURL(spotifyIDString);
+            }
             }
         } catch (UnirestException e) {
             e.printStackTrace();
