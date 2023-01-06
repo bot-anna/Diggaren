@@ -4,10 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="301b4076-2044-4daf-aee1-9d140a59a8f7" name="Changes" comment="flyttat nya frontendfiler">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+    <list default="true" id="301b4076-2044-4daf-aee1-9d140a59a8f7" name="Changes" comment="tagit bort testklasser">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Test/DiggarenAllChannelsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Test/DiggarenAllChannelsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/api.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/home.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/radio.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/script.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/static/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/views/be-with-records.v2.webp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/views/caaat.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/views/returdata1 - Copy.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/views/returdata2.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Diggaren/views/returdata3.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/api.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/api.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/home.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/radio.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/radio.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/static/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/static/static/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +42,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="SOFT" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -54,7 +69,7 @@
       <recent name="C:\Users\Berry\Documents\GitHub\Diggaren\src\main\resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.DiggarenAllChannelsTest">
+  <component name="RunManager" selected="Application.Runner">
     <configuration name="DiggarenAllChannelsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Test.DiggarenAllChannelsTest" />
       <module name="Diggaren" />
@@ -94,6 +109,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="FetchSongsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test.FetchSongsTest" />
+      <module name="Diggaren" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="QueryTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="QueryTester" />
+      <module name="Diggaren" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="QueryTester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="QueryTester" />
       <module name="Diggaren" />
@@ -110,8 +145,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.DiggarenAllChannelsTest" />
         <item itemvalue="Application.Runner" />
+        <item itemvalue="Application.DiggarenAllChannelsTest" />
         <item itemvalue="Application.QueryTester" />
         <item itemvalue="Application.FetchSongsTest" />
         <item itemvalue="Application.FetchChannelsTest" />
@@ -169,7 +204,19 @@
       <option name="presentableId" value="LOCAL−00007" />
       <updated>1673019299545</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL−00008" summary="tagit bort testklasser">
+      <created>1673022307083</created>
+      <option name="number" value="LOCAL−00008" />
+      <option name="presentableId" value="LOCAL−00008" />
+      <updated>1673022307083</updated>
+    </task>
+    <task id="LOCAL−00009" summary="tagit bort testklasser">
+      <created>1673022458530</created>
+      <option name="number" value="LOCAL−00009" />
+      <option name="presentableId" value="LOCAL−00009" />
+      <updated>1673022458530</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -180,6 +227,36 @@
             <State />
           </value>
         </entry>
+        <entry key="bfd55dd1-535f-4849-a41a-1c2ec2d838e1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="bfd55dd1-535f-4849-a41a-1c2ec2d838e1" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -191,7 +268,8 @@
     <MESSAGE value="lagt till ändpunkt" />
     <MESSAGE value="kommenterat" />
     <MESSAGE value="flyttat nya frontendfiler" />
-    <option name="LAST_COMMIT_MESSAGE" value="flyttat nya frontendfiler" />
+    <MESSAGE value="tagit bort testklasser" />
+    <option name="LAST_COMMIT_MESSAGE" value="tagit bort testklasser" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
