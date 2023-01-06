@@ -1,7 +1,6 @@
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import io.javalin.Javalin;
+import io.javalin.http.staticfiles.Location;
 
 public class Runner {
     private static Controller controller;
@@ -25,7 +24,7 @@ public class Runner {
     private static void startRunner() {
         Runner Runner = new Runner();
         Javalin app = Javalin.create(config -> {
-            config.staticFiles.add("/static", Location.CLASSPATH);
+            config.staticFiles.add("static/static", Location.CLASSPATH);
             config.plugins.enableCors(cors -> {
                 cors.add(it ->
                         it.anyHost());
@@ -34,7 +33,7 @@ public class Runner {
                 .get("/radio/allchannels", ctx -> { controller.getRadioChannels(ctx); })
                 .get("/radio/{id}", ctx -> {controller.getSongs(ctx);}) //returnerar spotify-IDt för låtarna
                 .get("/api/{id}", ctx -> { controller.getFullSongs(ctx);}) //returnerar hela spotifyURLen
-                .get("/", ctx -> { ctx.redirect("Diggaren/home.html");})
+                .get("/", ctx -> { ctx.redirect("index.html");}) //redirectar till hemsidan
                 .start(5008); //run server on port 5008
     }
 
