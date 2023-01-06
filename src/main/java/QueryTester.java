@@ -48,6 +48,9 @@ public class QueryTester {
             JSONObject external_urls = item.getJSONObject("external_urls"); //hämta external_urls-objektet ur item
             String spotifyURL = external_urls.getString("spotify"); //hämta urlen som tillhör "spotify"
             System.out.println(spotifyURL); //skriv ut url
+            System.out.println("Envelope: " + envelope2.toString(1));
+            String spotifyID = item.getString("id");
+            System.out.println(spotifyID);
             /**
              * vi kan också hämta länk till bild på albumcover ur "item", det hade ju kunnat vara roligt att skicka med och visa upp
              */
